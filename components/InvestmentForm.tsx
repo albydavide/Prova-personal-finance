@@ -45,8 +45,8 @@ export function InvestmentForm({ partners, allocations, onAdd }: InvestmentFormP
   };
 
   return (
-    <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/50 overflow-hidden">
-      <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6">
+    <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-6">
         <h2 className="text-2xl font-bold text-white">📈 Aggiungi Investimento</h2>
       </div>
       <div className="p-6">

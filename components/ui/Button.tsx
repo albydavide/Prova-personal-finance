@@ -14,10 +14,10 @@ export function Button({
   const baseStyles = 'relative overflow-hidden rounded-full font-medium transition-all duration-475 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer border-none';
 
   const variants = {
-    primary: 'bg-[#3d3a4e] text-white hover:shadow-lg hover:shadow-purple-500/50',
-    secondary: 'bg-slate-700 text-white hover:shadow-lg hover:shadow-slate-500/50',
-    danger: 'bg-[#3d3a4e] text-white hover:shadow-lg hover:shadow-red-500/50',
-    success: 'bg-[#3d3a4e] text-white hover:shadow-lg hover:shadow-green-500/50',
+    primary: 'bg-[#3d3a4e] text-white hover:shadow-lg hover:shadow-blue-500/30',
+    secondary: 'bg-slate-700 text-white hover:shadow-lg hover:shadow-slate-500/30',
+    danger: 'bg-[#3d3a4e] text-white hover:shadow-lg hover:shadow-red-500/30',
+    success: 'bg-[#3d3a4e] text-white hover:shadow-lg hover:shadow-emerald-500/30',
   };
 
   const sizes = {
@@ -27,10 +27,10 @@ export function Button({
   };
 
   const gradients = {
-    primary: 'linear-gradient(82.3deg, rgba(150, 93, 233, 1) 10.8%, rgba(99, 88, 238, 1) 94.3%)',
+    primary: 'linear-gradient(82.3deg, rgba(37, 99, 235, 1) 10.8%, rgba(29, 78, 216, 1) 94.3%)',
     secondary: 'linear-gradient(82.3deg, rgba(71, 85, 105, 1) 10.8%, rgba(51, 65, 85, 1) 94.3%)',
-    danger: 'linear-gradient(82.3deg, rgba(239, 68, 68, 1) 10.8%, rgba(220, 38, 38, 1) 94.3%)',
-    success: 'linear-gradient(82.3deg, rgba(34, 197, 94, 1) 10.8%, rgba(22, 163, 74, 1) 94.3%)',
+    danger: 'linear-gradient(82.3deg, rgba(220, 38, 38, 1) 10.8%, rgba(185, 28, 28, 1) 94.3%)',
+    success: 'linear-gradient(82.3deg, rgba(5, 150, 105, 1) 10.8%, rgba(4, 120, 87, 1) 94.3%)',
   };
 
   return (

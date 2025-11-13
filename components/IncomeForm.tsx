@@ -40,8 +40,8 @@ export function IncomeForm({ partners, onAdd }: IncomeFormProps) {
   };
 
   return (
-    <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/50 overflow-hidden">
-      <div className="bg-gradient-to-r from-green-500 to-emerald-600 p-6">
+    <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+      <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 p-6">
         <h2 className="text-2xl font-bold text-white">💰 Aggiungi Entrata</h2>
       </div>
       <div className="p-6">

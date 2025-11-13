@@ -58,8 +58,8 @@ export function ExpenseForm({ partners, onAdd }: ExpenseFormProps) {
   };
 
   return (
-    <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/50 overflow-hidden">
-      <div className="bg-gradient-to-r from-orange-500 to-red-600 p-6">
+    <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+      <div className="bg-gradient-to-r from-red-600 to-red-700 p-6">
         <h2 className="text-2xl font-bold text-white">💸 Aggiungi Spesa</h2>
       </div>
       <div className="p-6">
@@ -109,13 +109,13 @@ export function ExpenseForm({ partners, onAdd }: ExpenseFormProps) {
             onChange={(e) => setDescription(e.target.value)}
           />
 
-          <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-2xl border-2 border-purple-200">
+          <div className="bg-gradient-to-r from-slate-50 to-gray-100 p-4 rounded-2xl border-2 border-slate-200">
             <label className="flex items-center cursor-pointer">
               <input
                 type="checkbox"
                 checked={isShared}
                 onChange={(e) => setIsShared(e.target.checked)}
-                className="w-5 h-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500 cursor-pointer"
+                className="w-5 h-5 rounded border-gray-300 text-slate-600 focus:ring-slate-500 cursor-pointer"
               />
               <span className="ml-3 text-sm font-semibold text-gray-800">
                 🤝 Spesa condivisa (50/50)
