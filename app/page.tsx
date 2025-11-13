@@ -16,19 +16,37 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'income' | 'expenses' | 'investments'>('dashboard');
 
   const loadData = async () => {
-    const [partnersRes, balanceRes, allocationsRes] = await Promise.all([
-      fetch('/api/partners'),
-      fetch('/api/balance'),
-      fetch('/api/allocations'),
-    ]);
+    try {
+      const [partnersRes, balanceRes, allocationsRes] = await Promise.all([
+        fetch('/api/partners'),
+        fetch('/api/balance'),
+        fetch('/api/allocations'),
+      ]);
 
-    const partnersData = await partnersRes.json();
-    const balanceData = await balanceRes.json();
-    const allocationsData = await allocationsRes.json();
+      // Check each response individually for better error messages
+      if (!partnersRes.ok) {
+        console.error('Partners API failed:', await partnersRes.text());
+        throw new Error('Failed to fetch partners');
+      }
+      if (!balanceRes.ok) {
+        console.error('Balance API failed:', await balanceRes.text());
+        throw new Error('Failed to fetch balance');
+      }
+      if (!allocationsRes.ok) {
+        console.error('Allocations API failed:', await allocationsRes.text());
+        throw new Error('Failed to fetch allocations');
+      }
 
-    setPartners(partnersData);
-    setBalance(balanceData);
-    setAllocations(allocationsData);
+      const partnersData = await partnersRes.json();
+      const balanceData = await balanceRes.json();
+      const allocationsData = await allocationsRes.json();
+
+      setPartners(partnersData);
+      setBalance(balanceData);
+      setAllocations(allocationsData);
+    } catch (error) {
+      console.error('Error loading data:', error);
+    }
   };
 
   useEffect(() => {
