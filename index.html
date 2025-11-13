@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanza Personale - Coppia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Gestione Finanza Personale di Coppia</h1>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" onclick="showTab('partner1')">Partner 1</button>
+            <button class="tab-button" onclick="showTab('partner2')">Partner 2</button>
+            <button class="tab-button" onclick="showTab('shared')">Condiviso</button>
+            <button class="tab-button" onclick="showTab('investments')">Investimenti</button>
+        </nav>
+
+        <!-- Partner 1 Tab -->
+        <div id="partner1" class="tab-content active">
+            <h2>Partner 1</h2>
+            
+            <div class="card">
+                <h3>Aggiungi Stipendio Mensile</h3>
+                <div class="form-group">
+                    <label>Mese:</label>
+                    <input type="month" id="p1-salary-month">
+                </div>
+                <div class="form-group">
+                    <label>Importo (€):</label>
+                    <input type="number" id="p1-salary-amount" placeholder="0.00" step="0.01">
+                </div>
+                <button onclick="addSalary('partner1')">Aggiungi Stipendio</button>
+            </div>
+
+            <div class="card">
+                <h3>Aggiungi Spesa Personale</h3>
+                <div class="form-group">
+                    <label>Descrizione:</label>
+                    <input type="text" id="p1-expense-desc" placeholder="Es: Spesa supermercato">
+                </div>
+                <div class="form-group">
+                    <label>Importo (€):</label>
+                    <input type="number" id="p1-expense-amount" placeholder="0.00" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>Data:</label>
+                    <input type="date" id="p1-expense-date">
+                </div>
+                <button onclick="addExpense('partner1')">Aggiungi Spesa</button>
+            </div>
+
+            <div class="card">
+                <h3>Riepilogo</h3>
+                <div class="summary">
+                    <p><strong>Totale Stipendi:</strong> <span id="p1-total-salary">€0.00</span></p>
+                    <p><strong>Totale Spese:</strong> <span id="p1-total-expenses">€0.00</span></p>
+                    <p><strong>Saldo:</strong> <span id="p1-balance">€0.00</span></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Storico</h3>
+                <div id="p1-history" class="history"></div>
+            </div>
+        </div>
+
+        <!-- Partner 2 Tab -->
+        <div id="partner2" class="tab-content">
+            <h2>Partner 2</h2>
+            
+            <div class="card">
+                <h3>Aggiungi Stipendio Mensile</h3>
+                <div class="form-group">
+                    <label>Mese:</label>
+                    <input type="month" id="p2-salary-month">
+                </div>
+                <div class="form-group">
+                    <label>Importo (€):</label>
+                    <input type="number" id="p2-salary-amount" placeholder="0.00" step="0.01">
+                </div>
+                <button onclick="addSalary('partner2')">Aggiungi Stipendio</button>
+            </div>
+
+            <div class="card">
+                <h3>Aggiungi Spesa Personale</h3>
+                <div class="form-group">
+                    <label>Descrizione:</label>
+                    <input type="text" id="p2-expense-desc" placeholder="Es: Spesa supermercato">
+                </div>
+                <div class="form-group">
+                    <label>Importo (€):</label>
+                    <input type="number" id="p2-expense-amount" placeholder="0.00" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>Data:</label>
+                    <input type="date" id="p2-expense-date">
+                </div>
+                <button onclick="addExpense('partner2')">Aggiungi Spesa</button>
+            </div>
+
+            <div class="card">
+                <h3>Riepilogo</h3>
+                <div class="summary">
+                    <p><strong>Totale Stipendi:</strong> <span id="p2-total-salary">€0.00</span></p>
+                    <p><strong>Totale Spese:</strong> <span id="p2-total-expenses">€0.00</span></p>
+                    <p><strong>Saldo:</strong> <span id="p2-balance">€0.00</span></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Storico</h3>
+                <div id="p2-history" class="history"></div>
+            </div>
+        </div>
+
+        <!-- Shared Tab -->
+        <div id="shared" class="tab-content">
+            <h2>Spese Condivise</h2>
+            
+            <div class="card">
+                <h3>Aggiungi Spesa Condivisa</h3>
+                <div class="form-group">
+                    <label>Descrizione:</label>
+                    <input type="text" id="shared-expense-desc" placeholder="Es: Affitto">
+                </div>
+                <div class="form-group">
+                    <label>Importo (€):</label>
+                    <input type="number" id="shared-expense-amount" placeholder="0.00" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>Chi ha pagato:</label>
+                    <select id="shared-expense-payer">
+                        <option value="partner1">Partner 1</option>
+                        <option value="partner2">Partner 2</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Data:</label>
+                    <input type="date" id="shared-expense-date">
+                </div>
+                <button onclick="addSharedExpense()">Aggiungi Spesa</button>
+            </div>
+
+            <div class="card">
+                <h3>Riepilogo Condiviso</h3>
+                <div class="summary">
+                    <p><strong>Totale Spese Condivise:</strong> <span id="shared-total">€0.00</span></p>
+                    <p><strong>Partner 1 ha pagato:</strong> <span id="p1-paid">€0.00</span></p>
+                    <p><strong>Partner 2 ha pagato:</strong> <span id="p2-paid">€0.00</span></p>
+                    <hr>
+                    <p class="balance-info" id="balance-info"></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Storico Spese Condivise</h3>
+                <div id="shared-history" class="history"></div>
+            </div>
+        </div>
+
+        <!-- Investments Tab -->
+        <div id="investments" class="tab-content">
+            <h2>Investimenti</h2>
+            
+            <div class="card">
+                <h3>Aggiungi Allocazione Mensile</h3>
+                <div class="form-group">
+                    <label>Mese:</label>
+                    <input type="month" id="invest-month">
+                </div>
+                <div class="form-group">
+                    <label>Categoria:</label>
+                    <select id="invest-category">
+                        <option value="ETF">ETF</option>
+                        <option value="PAC">PAC</option>
+                        <option value="Oro">Oro</option>
+                        <option value="Azioni">Azioni</option>
+                        <option value="Obbligazioni">Obbligazioni</option>
+                        <option value="Altro">Altro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Importo (€):</label>
+                    <input type="number" id="invest-amount" placeholder="0.00" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>Descrizione:</label>
+                    <input type="text" id="invest-desc" placeholder="Es: VWCE ETF">
+                </div>
+                <button onclick="addInvestment()">Aggiungi Investimento</button>
+            </div>
+
+            <div class="card">
+                <h3>Riepilogo Investimenti</h3>
+                <div class="summary">
+                    <p><strong>Totale Allocato:</strong> <span id="invest-total">€0.00</span></p>
+                </div>
+                <div id="invest-by-category" class="category-breakdown"></div>
+            </div>
+
+            <div class="card">
+                <h3>Rendimenti di Mercato</h3>
+                <div id="market-data" class="market-data">
+                    <p><em>Caricamento dati di mercato...</em></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Storico Investimenti</h3>
+                <div id="invest-history" class="history"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
