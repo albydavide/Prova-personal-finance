@@ -65,71 +65,80 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold">Finanza di Coppia</h1>
-          <p className="text-blue-100 mt-1">
-            Gestisci le tue finanze personali e di coppia con semplicità
-          </p>
+      <header className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-90"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 py-8">
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 bg-white/20 backdrop-blur-lg rounded-2xl flex items-center justify-center shadow-lg border border-white/30">
+              <Wallet className="text-white" size={32} />
+            </div>
+            <div>
+              <h1 className="text-4xl font-bold text-white drop-shadow-lg">Finanza di Coppia</h1>
+              <p className="text-blue-100 mt-1 text-lg">
+                Gestisci le tue finanze con semplicità ed eleganza
+              </p>
+            </div>
+          </div>
         </div>
       </header>
 
-      {/* Navigation Tabs */}
-      <div className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex space-x-8">
+      {/* Navigation Tabs - Modern Floating Style */}
+      <div className="max-w-7xl mx-auto px-4 -mt-6 relative z-10">
+        <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl border border-white/50 p-2">
+          <div className="flex gap-2">
             <button
               onClick={() => setActiveTab('dashboard')}
-              className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+              className={`flex-1 py-3 px-4 rounded-xl font-medium text-sm transition-all duration-300 ${
                 activeTab === 'dashboard'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/50 scale-105'
+                  : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center gap-2">
                 <Wallet size={18} />
-                Dashboard
+                <span className="hidden sm:inline">Dashboard</span>
               </div>
             </button>
             <button
               onClick={() => setActiveTab('income')}
-              className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+              className={`flex-1 py-3 px-4 rounded-xl font-medium text-sm transition-all duration-300 ${
                 activeTab === 'income'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg shadow-green-500/50 scale-105'
+                  : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center gap-2">
                 <ArrowLeftRight size={18} />
-                Entrate
+                <span className="hidden sm:inline">Entrate</span>
               </div>
             </button>
             <button
               onClick={() => setActiveTab('expenses')}
-              className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+              className={`flex-1 py-3 px-4 rounded-xl font-medium text-sm transition-all duration-300 ${
                 activeTab === 'expenses'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
+                  ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg shadow-orange-500/50 scale-105'
+                  : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center gap-2">
                 <ArrowLeftRight size={18} />
-                Spese
+                <span className="hidden sm:inline">Spese</span>
               </div>
             </button>
             <button
               onClick={() => setActiveTab('investments')}
-              className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+              className={`flex-1 py-3 px-4 rounded-xl font-medium text-sm transition-all duration-300 ${
                 activeTab === 'investments'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
+                  ? 'bg-gradient-to-r from-purple-500 to-pink-600 text-white shadow-lg shadow-purple-500/50 scale-105'
+                  : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center gap-2">
                 <TrendingUp size={18} />
-                Investimenti
+                <span className="hidden sm:inline">Investimenti</span>
               </div>
             </button>
           </div>
@@ -172,9 +181,9 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t mt-12">
-        <div className="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600 text-sm">
-          <p>
+      <footer className="bg-gradient-to-r from-slate-900 to-blue-900 text-white border-t border-white/10 mt-12">
+        <div className="max-w-7xl mx-auto px-4 py-6 text-center">
+          <p className="text-blue-200 text-sm">
             App per la finanza di coppia - Template configurato per: 2500€/mese a testa, split 50/50, 350€/mese investimenti
           </p>
         </div>
