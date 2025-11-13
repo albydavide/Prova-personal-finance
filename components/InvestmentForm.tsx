@@ -45,12 +45,12 @@ export function InvestmentForm({ partners, allocations, onAdd }: InvestmentFormP
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Aggiungi Investimento</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit}>
+    <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/50 overflow-hidden">
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6">
+        <h2 className="text-2xl font-bold text-white">📈 Aggiungi Investimento</h2>
+      </div>
+      <div className="p-6">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <Select
             label="Partner"
             options={partners.map(p => ({ value: p.id, label: p.name }))}
@@ -85,11 +85,11 @@ export function InvestmentForm({ partners, allocations, onAdd }: InvestmentFormP
             onChange={(e) => setAllocId(Number(e.target.value))}
           />
 
-          <Button type="submit" className="w-full">
-            Aggiungi Investimento
+          <Button type="submit" variant="primary" size="lg" className="w-full mt-6">
+            🚀 Aggiungi Investimento
           </Button>
         </form>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

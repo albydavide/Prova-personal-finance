@@ -40,12 +40,12 @@ export function IncomeForm({ partners, onAdd }: IncomeFormProps) {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Aggiungi Entrata</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit}>
+    <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/50 overflow-hidden">
+      <div className="bg-gradient-to-r from-green-500 to-emerald-600 p-6">
+        <h2 className="text-2xl font-bold text-white">💰 Aggiungi Entrata</h2>
+      </div>
+      <div className="p-6">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <Select
             label="Partner"
             options={partners.map(p => ({ value: p.id, label: p.name }))}
@@ -77,11 +77,11 @@ export function IncomeForm({ partners, onAdd }: IncomeFormProps) {
             onChange={(e) => setDescription(e.target.value)}
           />
 
-          <Button type="submit" className="w-full">
-            Aggiungi Entrata
+          <Button type="submit" variant="success" size="lg" className="w-full mt-6">
+            ✅ Aggiungi Entrata
           </Button>
         </form>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

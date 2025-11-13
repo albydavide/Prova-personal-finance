@@ -58,12 +58,12 @@ export function ExpenseForm({ partners, onAdd }: ExpenseFormProps) {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Aggiungi Spesa</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit}>
+    <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/50 overflow-hidden">
+      <div className="bg-gradient-to-r from-orange-500 to-red-600 p-6">
+        <h2 className="text-2xl font-bold text-white">💸 Aggiungi Spesa</h2>
+      </div>
+      <div className="p-6">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <Select
             label="Partner"
             options={partners.map(p => ({ value: p.id, label: p.name }))}
@@ -109,25 +109,25 @@ export function ExpenseForm({ partners, onAdd }: ExpenseFormProps) {
             onChange={(e) => setDescription(e.target.value)}
           />
 
-          <div className="mb-4">
-            <label className="flex items-center">
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-2xl border-2 border-purple-200">
+            <label className="flex items-center cursor-pointer">
               <input
                 type="checkbox"
                 checked={isShared}
                 onChange={(e) => setIsShared(e.target.checked)}
-                className="mr-2"
+                className="w-5 h-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500 cursor-pointer"
               />
-              <span className="text-sm font-medium text-gray-700">
-                Spesa condivisa (50/50)
+              <span className="ml-3 text-sm font-semibold text-gray-800">
+                🤝 Spesa condivisa (50/50)
               </span>
             </label>
           </div>
 
-          <Button type="submit" className="w-full">
-            Aggiungi Spesa
+          <Button type="submit" variant="danger" size="lg" className="w-full mt-6">
+            ➕ Aggiungi Spesa
           </Button>
         </form>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }
